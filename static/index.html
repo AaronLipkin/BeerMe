@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BeerMe!</title>
+		<meta name="description" content="A content-based suggestion engine for everyone's favorite drink, Beer" />
+		<meta name="keywords" content="Natural Language UI, sentence form, text input, contenteditable, html5, css3, jquery" />
+		<meta name="author" content="Aaron" />
+		<link rel="shortcut icon" href="static/favicon.ico">
+		<link rel="apple-touch-icon" href="static/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="static/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/component.css" />
+		<script src="static/js/modernizr.custom.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+		<style>
+#logo-image {
+position: absolute;
+right: 10px;
+bottom: 10px;
+}
+</style>
+  	</head>
+<body class="nl-blurred">
+                        <div class="main clearfix">
+                                <form id="nl-form" class="nl-form" action="http://ec2-34-201-79-77.compute-1.amazonaws.com/myapp/suggestions" method="POST">
+                                        My favorite beer is
+                                        <input id="tags" type="text" value="" name="beer" required placeholder="not Keystone Light" data-subline="For example: <em>Guinness</em> or <em>Chimay Rouge</em>"/>
+                                        <br>and I'm looking for
+                                        <select name="pop">
+                                                <option value="500" selected>moderately</option>
+                                                <option value="1">not</option>
+                                                <option value="100">barely</option>
+                                                <option value="750">very</option>
+                                                <option value="1250">super duper</option>
+                                        </select>
+                                        popular suggestions
+                                        and I want
+                                        <select name="results">
+                                                <option value="1000" selected>all of them</option>
+                                                <option value="5">just a few</option>
+                                                <option value="15">a nice bushel</option>
+                                        </select>.
+                                        <div class="nl-submit-wrap">
+                                                <button class="nl-submit" type="submit">Find Me More!</button>
+                                        </div>
+                                        <div class="nl-overlay"></div>
+                                </form>
+                        </div>
+                </div><!-- /container -->
+                <script src="static/js/nlform.js"></script>
+                <script>
+                        var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+                </script>
+        </body>
+</html>
